@@ -8,6 +8,8 @@ import 'package:yesil_yol_projem/gardenScreen.dart'; // GardenScreen'ün tanıml
 import 'task_page.dart'; // TaskPage sınıfının tanımlandığı dosya
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -99,9 +101,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffEFFFFF),
+      backgroundColor: const Color(0xffEFFFFF),
       appBar: AppBar(
-        backgroundColor: Color(0xffB5EFFF),
+        backgroundColor: const Color(0xffB5EFFF),
         actions: [
           Container(
             decoration: BoxDecoration(
@@ -121,99 +123,102 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.teal.shade600,
                   ),
                 ),
-                SizedBox(width: 5),
+                const SizedBox(width: 5),
               ],
             ),
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Görevler',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Color(0xff156192),
-              ),
-            ),
-            SizedBox(height: 20),
-            Expanded(
-              child: ListView.builder(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                itemCount: 7, // Toplam 7 görev için
-                itemBuilder: (context, index) {
-                  String buttonText = "";
-                  List<String> tasks = [];
+      body: 
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Görevler',
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xff156192),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Expanded(
+                  child: ListView.builder(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    itemCount: 7, // Toplam 7 görev için
+                    itemBuilder: (context, index) {
+                      String buttonText = "";
+                      List<String> tasks = [];
 
-                  switch (index) {
-                    case 0:
-                      buttonText = "Atık Yönetimi ve geri dönüşüm";
-                      tasks = ["Plastik geri dönüşüm", "Kağıt geri dönüşüm", "Cam geri dönüşüm", "Organik atık yönetimi", "Elektronik atık yönetimi"];
-                      break;
-                    case 1:
-                      buttonText = "Enerji Tasarrufu";
-                      tasks = ["Işıkları kapat", "Enerji tasarruflu ampul kullan", "Fişleri çek", "Çamaşırları soğuk suda yıka", "Kısa duş al"];
-                      break;
-                    case 2:
-                      buttonText = "Su Tasarrufu";
-                      tasks = ["Muslukları kapat", "Düşük akışlı musluklar kullan", "Bulaşık makinesini doldur", "Kısa duş al", "Bahçe sulamayı azalt"];
-                      break;
-                    case 3:
-                      buttonText = "Alışveriş Tüketim Alışkanlığı";
-                      tasks = ["İhtiyaç dışı alışveriş yapma", "Yerli ürün al", "Organik ürün tercih et", "İkinci el al", "Plastik kullanımını azalt"];
-                      break;
-                    case 4:
-                      buttonText = "Doğa Ve Bitki Koruma";
-                      tasks = ["Ağaç dik", "Doğal parklara git", "Çöp toplama etkinliğine katıl", "Kompost yap", "Bitkileri koru"];
-                      break;
-                    case 5:
-                      buttonText = "Ulaşım Ve Karbon Ayak İzi";
-                      tasks = ["Toplu taşıma kullan", "Yürüyüş yap", "Bisiklete bin", "Araç paylaşımı yap", "Araba kullanma"];
-                      break;
-                    case 6:
-                      buttonText = "Sağlıklı Yaşam Ve Kişisel Bakım";
-                      tasks = ["Sağlıklı beslen", "Düzenli egzersiz yap", "Stresten kaçın", "Doğal ürünler kullan", "Uyku düzenine dikkat"];
-                      break;
-                  }
+                      switch (index) {
+                        case 0:
+                          buttonText = "Atık Yönetimi ve geri dönüşüm";
+                          tasks = ["Plastik geri dönüşüm", "Kağıt geri dönüşüm", "Cam geri dönüşüm", "Organik atık yönetimi", "Elektronik atık yönetimi"];
+                          break;
+                        case 1:
+                          buttonText = "Enerji Tasarrufu";
+                          tasks = ["Işıkları kapat", "Enerji tasarruflu ampul kullan", "Fişleri çek", "Çamaşırları soğuk suda yıka", "Kısa duş al"];
+                          break;
+                        case 2:
+                          buttonText = "Su Tasarrufu";
+                          tasks = ["Muslukları kapat", "Düşük akışlı musluklar kullan", "Bulaşık makinesini doldur", "Kısa duş al", "Bahçe sulamayı azalt"];
+                          break;
+                        case 3:
+                          buttonText = "Alışveriş Tüketim Alışkanlığı";
+                          tasks = ["İhtiyaç dışı alışveriş yapma", "Yerli ürün al", "Organik ürün tercih et", "İkinci el al", "Plastik kullanımını azalt"];
+                          break;
+                        case 4:
+                          buttonText = "Doğa Ve Bitki Koruma";
+                          tasks = ["Ağaç dik", "Doğal parklara git", "Çöp toplama etkinliğine katıl", "Kompost yap", "Bitkileri koru"];
+                          break;
+                        case 5:
+                          buttonText = "Ulaşım Ve Karbon Ayak İzi";
+                          tasks = ["Toplu taşıma kullan", "Yürüyüş yap", "Bisiklete bin", "Araç paylaşımı yap", "Araba kullanma"];
+                          break;
+                        case 6:
+                          buttonText = "Sağlıklı Yaşam Ve Kişisel Bakım";
+                          tasks = ["Sağlıklı beslen", "Düzenli egzersiz yap", "Stresten kaçın", "Doğal ürünler kullan", "Uyku düzenine dikkat"];
+                          break;
+                      }
 
-                  // Rastgele konum belirlemek için random değerler kullan
-                  double top = Random().nextDouble() * 150; // 0 ile 200 arasında rastgele yükseklik
-                  double left = Random().nextDouble() * 150; // 0 ile 200 arasında rastgele yatay konum
+                      // Rastgele konum belirlemek için random değerler kullan
+                      double top = Random().nextDouble() * 150; // 0 ile 150 arasında rastgele yükseklik
+                      double left = Random().nextDouble() * 150; // 0 ile 150 arasında rastgele yatay konum
 
-                  return TextButton(
-                    onPressed: () {
-                      navigateToPage(context, buttonText, tasks, loggedInUser);
-                    },
-                    child: Container(
-                      margin: EdgeInsets.only(bottom: 10),
-                      width: 150,
-                      height: 150,
-                      transform: Matrix4.translationValues(top, 0.0, 0.0),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.teal.shade600,
-                      ),
-                      child: Center(
-                        child: Text(
-                          buttonText,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
+                      return TextButton(
+                        onPressed: () {
+                          navigateToPage(context, buttonText, tasks, loggedInUser);
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.only(bottom: 10),
+                          width: 150,
+                          height: 150,
+                          transform: Matrix4.translationValues(left, 0.0, 0.0),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.teal.shade600,
+                          ),
+                          child: Center(
+                            child: Text(
+                              buttonText,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-                  );
-                },
-              ),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+
+
       bottomNavigationBar: _buildFooterButton(context),
     );
   }
@@ -232,45 +237,47 @@ class _HomeScreenState extends State<HomeScreen> {
           _buildBottomButton(context, Icons.store, "Mağaza", () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => StoreScreen()),
+              MaterialPageRoute(builder: (context) => const StoreScreen()),
             );
           }),
 
           _buildBottomButton(context, Icons.yard_rounded, "Bahçem", () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => GardenScreen()),
+              MaterialPageRoute(builder: (context) => const GardenScreen()),
             );
           }),
 
-          _buildBottomButton(context, Icons.account_box, "Profilim", () {
+          _buildBottomButton(context, Icons.person, "Profilim", () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ProfileSettingsScreen()),
+              MaterialPageRoute(builder: (context) => const ProfileSettingsScreen()),
             );
           }),
 
+          _buildBottomButton(context, Icons.exit_to_app, "Çıkış Yap", () {
+            _auth.signOut();
+            Navigator.pop(context);
+          }),
         ],
       ),
     );
   }
 
   Widget _buildBottomButton(BuildContext context, IconData icon, String label, VoidCallback onPressed) {
-    return GestureDetector(
-      onTap: onPressed,
+    return TextButton(
+      onPressed: onPressed,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
             icon,
-            color: Colors.teal.shade600,
+            color: const Color(0xff0e596d),
           ),
-          SizedBox(height: 4),
           Text(
             label,
-            style: TextStyle(
-              fontSize: 12,
-              color: Colors.teal.shade600,
+            style: const TextStyle(
+              color: Color(0xff0e596d),
             ),
           ),
         ],

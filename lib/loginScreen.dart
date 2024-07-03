@@ -7,6 +7,8 @@ import 'dart:async'; // Timer kullanımı için gerekli
 import 'mainScreen.dart';
 
 class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
+
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
 }
@@ -36,9 +38,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void _startAnimation() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
-        _currentColor = _isAnimating ? Colors.white : Color(0xffB5EFFF);
+        _currentColor = _isAnimating ? Colors.white : const Color(0xffB5EFFF);
         _isAnimating = !_isAnimating;
       });
     });
@@ -48,12 +50,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Stack(
       children: [
         AnimatedContainer(
-          duration: Duration(seconds: 1),
+          duration: const Duration(seconds: 1),
           decoration: BoxDecoration(
             color: _currentColor,
             borderRadius: BorderRadius.circular(8),
           ),
-          padding: EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           child: TextField(
             decoration: InputDecoration(hintText: hintText, border: InputBorder.none),
             onChanged: (value) => setState(() => onChanged(value.trim())),
@@ -67,13 +69,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffEFFFFF),
+      backgroundColor: const Color(0xffEFFFFF),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Hesap Oluştur',
           style: TextStyle(color: Color(0xffDAFFFF)),
         ),
-        backgroundColor: Color(0xff156192),
+        backgroundColor: const Color(0xff156192),
       ),
       body: Center(
         child: Padding(
@@ -81,16 +83,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(
+                height: 100,
+                child: Image.asset('assets/logo.png'), // Logo'nun yolu, dosyanızın doğru yolu olduğundan emin olun
+              ),
+              const SizedBox(height: 20),
               buildAnimatedContainer('Adınız', (value) => name = value),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               buildAnimatedContainer('E-mail', (value) => email = value),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               buildAnimatedContainer('Şifre', (value) => password = value, obscureText: true),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xffB5EFFF),
-                  side: BorderSide(color: Color(0xffB5EFFF)),
+                  backgroundColor: const Color(0xffB5EFFF),
+                  side: const BorderSide(color: Color(0xffB5EFFF)),
                 ),
                 onPressed: () async {
                   if (name.isNotEmpty && email.isNotEmpty && password.isNotEmpty) {
@@ -109,7 +116,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'purchasedItems': [],   // Başlangıçta boş eşya listesi
                         });
 
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
                       }
                     } catch (error) {
                       Fluttertoast.showToast(msg: error.toString(), toastLength: Toast.LENGTH_LONG);
@@ -118,17 +125,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     Fluttertoast.showToast(msg: 'Tüm alanları doldurun!', toastLength: Toast.LENGTH_LONG);
                   }
                 },
-                child: Text(
+                child: const Text(
                   'Hesap Oluştur',
                   style: TextStyle(color: Color(0xff156192)),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
                 },
-                child: Text(
+                child: const Text(
                   'Giriş Yap',
                   style: TextStyle(color: Color(0xff156192)),
                 ),
@@ -142,6 +149,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
 }
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -169,9 +178,9 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _startAnimation() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
-        _currentColor = _isAnimating ? Colors.white : Color(0xffB5EFFF);
+        _currentColor = _isAnimating ? Colors.white : const Color(0xffB5EFFF);
         _isAnimating = !_isAnimating;
       });
     });
@@ -179,12 +188,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget buildAnimatedContainer(String hintText, Function(String) onChanged, {bool obscureText = false}) {
     return AnimatedContainer(
-      duration: Duration(seconds: 1),
+      duration: const Duration(seconds: 1),
       decoration: BoxDecoration(
         color: _currentColor,
         borderRadius: BorderRadius.circular(8),
       ),
-      padding: EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child: TextField(
         decoration: InputDecoration(hintText: hintText, border: InputBorder.none),
         onChanged: (value) => setState(() => onChanged(value.trim())),
@@ -196,9 +205,9 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffEFFFFF),
+      backgroundColor: const Color(0xffEFFFFF),
       appBar: AppBar(
-        backgroundColor: Color(0xff156192),
+        backgroundColor: const Color(0xff156192),
         automaticallyImplyLeading: false,
       ),
       body: Center(
@@ -207,20 +216,25 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(
+                height: 500,
+                child: Image.asset('assets/images/happy-earth-day.jpg'), // Logo'nun yolu, dosyanızın doğru yolu olduğundan emin olun
+              ),
+              const SizedBox(height: 20),
               buildAnimatedContainer('E-mail', (value) => email = value),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               buildAnimatedContainer('Şifre', (value) => password = value, obscureText: true),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xffB5EFFF),
-                  side: BorderSide(color: Color(0xffB5EFFF)),
+                  backgroundColor: const Color(0xffB5EFFF),
+                  side: const BorderSide(color: Color(0xffB5EFFF)),
                 ),
                 onPressed: () {
                   if (email.isNotEmpty && password.isNotEmpty) {
                     _auth.signInWithEmailAndPassword(email: email, password: password)
                         .then((UserCredential userCredential) {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
                     }).catchError((error) {
                       Fluttertoast.showToast(msg: error.toString(), toastLength: Toast.LENGTH_LONG);
                     });
@@ -228,17 +242,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     Fluttertoast.showToast(msg: 'Email ve şifre alanları boş olamaz!', toastLength: Toast.LENGTH_LONG);
                   }
                 },
-                child: Text(
+                child: const Text(
                   'Giriş Yap',
                   style: TextStyle(color: Color(0xff156192)),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignUpScreen()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SignUpScreen()));
                 },
-                child: Text(
+                child: const Text(
                   'Hesap Oluştur',
                   style: TextStyle(color: Color(0xff156192)),
                 ),

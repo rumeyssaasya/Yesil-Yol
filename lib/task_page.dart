@@ -10,7 +10,7 @@ class TaskPage extends StatefulWidget {
   final Function(String, Timestamp) onTaskChecked; // Fonksiyon tipi güncellendi
   final User loggedInUser; // loggedInUser parametresi eklendi
 
-  TaskPage({
+  const TaskPage({super.key, 
     required this.pageName,
     required this.tasks,
     required this.onTaskComplete,

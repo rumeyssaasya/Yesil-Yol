@@ -5,6 +5,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'main.dart';
 
 class ProfileSettingsScreen extends StatefulWidget {
+  const ProfileSettingsScreen({super.key});
+
   @override
   _ProfileSettingsScreenState createState() => _ProfileSettingsScreenState();
 }
@@ -16,8 +18,8 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
   late User _currentUser;
   bool _isLoading = false;
 
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   void initState() {
@@ -55,13 +57,13 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
       });
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Profil güncellendi.'),
         ),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Profil güncellenirken hata oluştu.'),
         ),
       );
@@ -76,7 +78,7 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
       await FirebaseAuth.instance.signOut();
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => MyApp()),
+        MaterialPageRoute(builder: (context) => const MyApp()),
             (Route<dynamic> route) => false,
       );
     } catch (e) {
@@ -88,41 +90,41 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profil Ayarları'),
-        backgroundColor: Color(0xff156192),
+        title: const Text('Profil Ayarları'),
+        backgroundColor: const Color(0xff156192),
       ),
       body: _isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             TextField(
               controller: _nameController,
-              decoration: InputDecoration(labelText: 'İsim'),
+              decoration: const InputDecoration(labelText: 'İsim'),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(labelText: 'E-posta'),
+              decoration: const InputDecoration(labelText: 'E-posta'),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: _updateProfile,
-              child: Text('Kaydet'),
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Color(0xff156192),
+                backgroundColor: const Color(0xff156192),
               ),
+              child: const Text('Kaydet'),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             TextButton(
               onPressed: () => signOut(context),
-              child: Text('Çıkış Yap'),
               style: TextButton.styleFrom(
                 foregroundColor: Colors.red,
               ),
+              child: const Text('Çıkış Yap'),
             ),
           ],
         ),

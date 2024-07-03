@@ -3,6 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class StoreScreen extends StatefulWidget {
+  const StoreScreen({super.key});
+
   @override
   _StoreScreenState createState() => _StoreScreenState();
 }
@@ -54,8 +56,8 @@ class _StoreScreenState extends State<StoreScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Mağaza'),
-        backgroundColor: Color(0xff156192),
+        title: const Text('Mağaza'),
+        backgroundColor: const Color(0xff156192),
       ),
       body: Column(
         children: [
@@ -64,20 +66,20 @@ class _StoreScreenState extends State<StoreScreen> {
               itemCount: items.length,
               itemBuilder: (context, index) {
                 return Card(
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   child: Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Icon(items[index]["icon"]),
                         Text(
                           items[index]["name"],
-                          style: TextStyle(fontSize: 18),
+                          style: const TextStyle(fontSize: 18),
                         ),
                         Text(
                           "${items[index]["price"]}\$",
-                          style: TextStyle(fontSize: 18),
+                          style: const TextStyle(fontSize: 18),
                         ),
                         Checkbox(
                           value: items[index]["checked"],
@@ -96,16 +98,16 @@ class _StoreScreenState extends State<StoreScreen> {
           ),
           ElevatedButton(
             onPressed: _purchaseItems,
-            child: Text('Satın Al',style: TextStyle(color: Color(0xffEFFFFF)),),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff156192),
+              backgroundColor: const Color(0xff156192),
             ),
+            child: const Text('Satın Al',style: TextStyle(color: Color(0xffEFFFFF)),),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
               "Bakiye: $greenCoins₺",
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
             ),
           ),
         ],
@@ -126,7 +128,7 @@ class _StoreScreenState extends State<StoreScreen> {
 
     if (totalCost > greenCoins) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Yeterli bakiyeniz yok.'),
         ),
       );
@@ -141,7 +143,7 @@ class _StoreScreenState extends State<StoreScreen> {
       });
       _updateUserBalanceAndItems(greenCoins, purchasedItemNames);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Satın alma başarılı.'),
         ),
       );

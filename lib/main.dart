@@ -3,25 +3,28 @@ import 'package:flutter/material.dart';
 import 'loginScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:intl/intl.dart';
 
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,);
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MainPage(),
     );
   }
 }
 class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
   @override
   State<MainPage> createState() => _MainPageState();
 }
@@ -30,10 +33,10 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffDAFFFF),
+      backgroundColor: const Color(0xffDAFFFF),
         appBar: AppBar(
-          backgroundColor: Color(0xff156192),
-          title: Center(
+          backgroundColor: const Color(0xff156192),
+          title: const Center(
             child: Text(
               'Yeşil Yol',
               style: TextStyle(
@@ -51,7 +54,7 @@ class _MainPageState extends State<MainPage> {
               Container(
                 width: 450, // Butonun genişliği
                 height: 450,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   //borderRadius: BorderRadius.circular(100),
                   shape: BoxShape.circle,
@@ -71,13 +74,13 @@ class _MainPageState extends State<MainPage> {
 
               OutlinedButton(
                 style: OutlinedButton.styleFrom(
-                  backgroundColor:Color(0xffDAfFFF),
-                  side: BorderSide(color: Color(0xffDAFFFF))
+                  backgroundColor:const Color(0xffDAfFFF),
+                  side: const BorderSide(color: Color(0xffDAFFFF))
                 ),
-                child: Text('Oturum açmak için tıklayınız.',style:
+                child: const Text('Oturum açmak için tıklayınız.',style:
                 TextStyle(color: Color(0xff156192),fontSize: 20),),
                 onPressed: () {
-                  Route loginekrani = MaterialPageRoute(builder: (context) =>LoginScreen());
+                  Route loginekrani = MaterialPageRoute(builder: (context) =>const LoginScreen());
                   Navigator.push(context, loginekrani);
                 },
               ),
