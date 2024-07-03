@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "129558646628",
+    "project_id": "yesil-yol-uygulamam",
+    "storage_bucket": "yesil-yol-uygulamam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129558646628:android:f7d5d94cef1bc870a33471",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDs3IpXxJuuJFtKxZUO2NKsEDTC8VQF8Hk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129558646628:android:835dc78f9e957930a33471",
+        "android_client_info": {
+          "package_name": "com.example.yesil_yol_projem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDs3IpXxJuuJFtKxZUO2NKsEDTC8VQF8Hk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129558646628:android:98c2d186ee7e6c52a33471",
+        "android_client_info": {
+          "package_name": "example.yesil_yol_projem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDs3IpXxJuuJFtKxZUO2NKsEDTC8VQF8Hk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
